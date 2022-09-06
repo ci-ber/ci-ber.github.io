@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>seminar | Cosmin I. Bercea</title>
+    <link>https://ci-ber.github.io/tag/seminar/</link>
+      <atom:link href="https://ci-ber.github.io/tag/seminar/index.xml" rel="self" type="application/rss+xml" />
+    <description>seminar</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ci-ber.github.io/media/icon_huf320c1c58d4cdc64cc1ce17fdbc917fb_24231_512x512_fill_lanczos_center_3.png</url>
+      <title>seminar</title>
+      <link>https://ci-ber.github.io/tag/seminar/</link>
+    </image>
+    
+    <item>
+      <title>Deep Medical Anomaly Segmentation</title>
+      <link>https://ci-ber.github.io/teaching/anomaly_seminar/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/teaching/anomaly_seminar/</guid>
+      <description>&lt;p&gt;Anomaly detection aims to identify patterns that do not conform to the expected normal distribution. Despite its importance for clinical applications, the detection of outliers is still a very challenging task due to the rarity, unknownness, diversity and heterogeneity of anomalies. Basic problem formulations to recent advances in the field will be discussed.&lt;/p&gt;
+&lt;p&gt;This includes, but is not limited to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reconstruction-based anomaly segmentation&lt;/li&gt;
+&lt;li&gt;Probabilistic models, i.e., anomaly likelihood estimation&lt;/li&gt;
+&lt;li&gt;Generative models&lt;/li&gt;
+&lt;li&gt;Self-supervised-, contrastive methods&lt;/li&gt;
+&lt;li&gt;Unsupervised methods&lt;/li&gt;
+&lt;li&gt;Clinical Applications&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

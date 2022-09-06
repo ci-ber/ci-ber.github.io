@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Cosmin I. Bercea</title>
+    <link>https://ci-ber.github.io/project/</link>
+      <atom:link href="https://ci-ber.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ci-ber.github.io/media/icon_huf320c1c58d4cdc64cc1ce17fdbc917fb_24231_512x512_fill_lanczos_center_3.png</url>
+      <title>Projects</title>
+      <link>https://ci-ber.github.io/project/</link>
+    </image>
+    
+    <item>
+      <title>What do we learn? Debunking the Myth of Unsupervised Outlier Detection</title>
+      <link>https://ci-ber.github.io/project/morphaeus/</link>
+      <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/project/morphaeus/</guid>
+      <description>&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/featured.gif&#34; alt=&#34;MorphAEus&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;unsupervised-outlier-detection&#34;&gt;Unsupervised Outlier Detection&lt;/h1&gt;
+&lt;h2 id=&#34;common-assumption&#34;&gt;Common Assumption:&lt;/h2&gt;
+&lt;p&gt;Auto-Encoders (AEs) trained on a data distribution (e.g., healthy chest X-rays) can only reconstruct in-distribution (ID) samples well, and yield high reconstruction error for out-of-distribution (OOD) samples:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_teaser_exp-gif.gif&#34; alt=&#34;Teaser-Expectation&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;An anomaly score can thus be directly computed from the residual of the input $x$ and its reconstruction: $s(x) = |x-g(f(x))|$, with $f$ and $g$ being the encoding and decoding functions, usually implemented with neural networks.&lt;/p&gt;
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations:&lt;/h2&gt;
+&lt;p&gt;However, recent literature has shown that AEs are able to reconstruct OoD samples sometimes even better than ID samples:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_teaser_real-gif.gif&#34; alt=&#34;Teaser-Reality&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;main-findings&#34;&gt;Main findings:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OoD metrics might hide correlations such as, background intensties, or domain shifts.&lt;/li&gt;
+&lt;li&gt;We propose two metrics based on the FID and classifier confidence to investigate the distribution learning capacity of state-of-the-art (SOTA) AEs&lt;/li&gt;
+&lt;li&gt;SOTA AEs are either unable to constrain the latent manifold and allow &lt;em&gt;reconstruction of abnormal patterns&lt;/em&gt;, or they are failing to accurately restore the inputs from their latent distribution, resulting in &lt;em&gt;blurred or misaligned&lt;/em&gt; reconstructions.&lt;/li&gt;
+&lt;li&gt;We propose novel deformable auto-encoders (MorphAEus) to learn perceptually aware global image priors and locally adapt their morphometry based on estimated dense deformation fields, drastically reducing the false positives.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;morphaeus-deformable-auto-encoders&#34;&gt;MorphAEus: Deformable Auto-Encoders&lt;/h2&gt;
+&lt;p&gt;To the best of our knowledge, this is the first work that uses dense deformations fields for unsupervised anomaly detection.
+We propose to learn minimal and sufficient representations for OoD by leveraging deep AEs to predict global image priors that match the training distribution and locally adapting their morphometry with estimated deep deformation fields to better match the input:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/Fig_Arch.png&#34; alt=&#34;Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The intuition behind using deformation fields is to align healthy tissues to the input image, reducing the number of false positives, without altering the true positive pathology detection:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_morph.png&#34; alt=&#34;Intuition&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Our method reconstructs healthy synthesis of pathological inputs, enabling the localization of pathology:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_gif_cxr.gif&#34; alt=&#34;CXR&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;do-we-learn-the-manifold-on-ood-detection&#34;&gt;Do we learn the manifold? On OoD detection&lt;/h2&gt;
+&lt;p&gt;Reconstructions of ID and OoD samples by SOTA AEs:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_ood.png&#34; alt=&#34;Manifold-Qualitative&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;SOTA AEs either accurately reconstruct the input, but copy abnormalities (e.g., hand, and digits) or yield blury (Dense AE, VAE, $\beta$-VAE) or missaligned (adversarial AEs) reconstructions.
+Our proposed method learns the training distribution and produces detailed reconstructions of ID samples.&lt;/p&gt;
+&lt;h2 id=&#34;do-we-learn-the-healthy-manifold-on-pathology-detection&#34;&gt;Do we learn the healthy manifold? On pathology detection&lt;/h2&gt;
+&lt;p&gt;Healthy example:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_healthy.png&#34; alt=&#34;Healthy&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+Some methods copy the input(Spatial AE, DAE), while the other produce blurry (Dense AE, VAE, $\beta$-VAE) or inaccurate (AAE, S-Intro VAE) reconstructions. We synthesize an accurate healthy image, removing the medical device.&lt;/p&gt;
+&lt;p&gt;Pathology examples:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_pathology_easy.png&#34; alt=&#34;Pat1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_pathology_40.png&#34; alt=&#34;Pat2&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;We synthesize detailed healthy reconstructions of pathological inputs, enabling unsupervised disease detection and localization.&lt;/p&gt;
+&lt;p&gt;Check our publication below for more information.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Federated Disentangled Representation Learning for Unsupervised Anomaly Detection</title>
+      <link>https://ci-ber.github.io/project/feddis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/project/feddis/</guid>
+      <description>&lt;p&gt;We use federated learning to train collaboratively an unsupervised neural network on multiple institutes in a privacy-aware manner with the goal of segmenting brain pathology on MRI scans. We show that the federated paradigm offeres an implicit way to disentangle the shape and appearance of brain scans, learning representations that are robust to the domain shifts of the different institutes.&lt;/p&gt;
+&lt;p&gt;Check our publications below for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
