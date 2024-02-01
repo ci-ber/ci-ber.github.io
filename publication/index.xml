@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | Cosmin I. Bercea</title>
+    <link>https://ci-ber.github.io/publication/</link>
+      <atom:link href="https://ci-ber.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 26 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ci-ber.github.io/media/icon_huf320c1c58d4cdc64cc1ce17fdbc917fb_24231_512x512_fill_lanczos_center_3.png</url>
+      <title>Publications</title>
+      <link>https://ci-ber.github.io/publication/</link>
+    </image>
+    
+    <item>
+      <title>Bias in Unsupervised Anomaly Detection in Brain MRI</title>
+      <link>https://ci-ber.github.io/publication/bias/</link>
+      <pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/bias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mask, Stitch, and Re-Sample: Enhancing Robustness and Generalizability in Anomaly Detection through Automatic Diffusion Models</title>
+      <link>https://ci-ber.github.io/publication/autoddpm/</link>
+      <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/autoddpm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Generalizing Unsupervised Anomaly Detection: Towards Unbiased Pathology Screening</title>
+      <link>https://ci-ber.github.io/publication/ra/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/ra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reversing the Abnormal: Pseudo-Healthy Generative Networks for Anomaly Detection</title>
+      <link>https://ci-ber.github.io/publication/phanes/</link>
+      <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/phanes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Federated Disentangled Representation Learning for Unsupervised Brain Anomaly Detection</title>
+      <link>https://ci-ber.github.io/publication/feddis&#43;/</link>
+      <pubDate>Tue, 02 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/feddis&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>What do we learn? Debunking the Myth of Unsupervised Outlier Detection</title>
+      <link>https://ci-ber.github.io/publication/morphaeus/</link>
+      <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/morphaeus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FedDis: Disentangled Federated Learning for Unsupervised Brain Pathology Segmentation</title>
+      <link>https://ci-ber.github.io/publication/feddis/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/feddis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SHAMANN: Shared Memory Augmented Neural Networks</title>
+      <link>https://ci-ber.github.io/publication/shamann/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/shamann/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Confidence-aware Levenberg-Marquardt optimization for joint motion estimation and super-resolution</title>
+      <link>https://ci-ber.github.io/publication/sr/</link>
+      <pubDate>Mon, 30 May 2016 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/publication/sr/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

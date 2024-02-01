@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>winter | Cosmin I. Bercea</title>
+    <link>https://ci-ber.github.io/tag/winter/</link>
+      <atom:link href="https://ci-ber.github.io/tag/winter/index.xml" rel="self" type="application/rss+xml" />
+    <description>winter</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 19 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ci-ber.github.io/media/icon_huf320c1c58d4cdc64cc1ce17fdbc917fb_24231_512x512_fill_lanczos_center_3.png</url>
+      <title>winter</title>
+      <link>https://ci-ber.github.io/tag/winter/</link>
+    </image>
+    
+    <item>
+      <title>Unsupervised Anomaly Detection in Medical Imaging</title>
+      <link>https://ci-ber.github.io/teaching/anomaly_seminar/</link>
+      <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/teaching/anomaly_seminar/</guid>
+      <description>&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/autoddpm_teaser.gif&#34; alt=&#34;Teaser&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Anomaly detection aims to identify patterns that do not conform to the expected normal distribution. Despite its importance for clinical applications, the detection of outliers is still a very challenging task due to the rarity, unknownness, diversity, and heterogeneity of anomalies. Basic problem formulations to recent advances in the field will be discussed.&lt;/p&gt;
+&lt;p&gt;This includes, but is not limited to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reconstruction-based anomaly segmentation&lt;/li&gt;
+&lt;li&gt;Probabilistic models, i.e., anomaly likelihood estimation&lt;/li&gt;
+&lt;li&gt;Generative models&lt;/li&gt;
+&lt;li&gt;Self-supervised-, contrastive methods&lt;/li&gt;
+&lt;li&gt;Unsupervised methods&lt;/li&gt;
+&lt;li&gt;Clinical Applications&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please register via the TUM matching system: &lt;a href=&#34;https://matching.in.tum.de&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://matching.in.tum.de&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Check the intro slides here: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/files/UAD_seminar.pdf&#34; alt=&#34;Slides&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;object data=&#34;/files/UAD_seminar.pdf&#34; type=&#34;application/pdf&#34; width=&#34;100%&#34; height=&#34;400&#34;&gt; 
+&lt;/object&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

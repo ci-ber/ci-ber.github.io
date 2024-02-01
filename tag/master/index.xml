@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>master | Cosmin I. Bercea</title>
+    <link>https://ci-ber.github.io/tag/master/</link>
+      <atom:link href="https://ci-ber.github.io/tag/master/index.xml" rel="self" type="application/rss+xml" />
+    <description>master</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ci-ber.github.io/media/icon_huf320c1c58d4cdc64cc1ce17fdbc917fb_24231_512x512_fill_lanczos_center_3.png</url>
+      <title>master</title>
+      <link>https://ci-ber.github.io/tag/master/</link>
+    </image>
+    
+    <item>
+      <title>Unsupervised Anomaly Detection for Medical Imaging  (f/m/x)</title>
+      <link>https://ci-ber.github.io/teaching/msc_uad/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/teaching/msc_uad/</guid>
+      <description>&lt;p&gt;Abstract:&lt;/p&gt;
+&lt;p&gt;Unsupervised anomaly detection methods aim to detect irregular and rare data instances that deviate from the normal, expected distribution.&lt;/p&gt;
+&lt;p&gt;Although much work has been done on the use of auto-encoders (AE) to detect anomalies, it has been shown that learning the healthy distribution is stil cumbersome, with AEs being able to reconstruct some types of anomalies even better than samples from the trained distribution. Strategies to constrain the latent manifold of AE include adversarial training, probabilistic modeling, or deformable auto-encoders. However, synthesizing healthy reconstructions from pathological input scans still remains a challenging task.&lt;/p&gt;
+&lt;p&gt;The objective of this project is to develop novel unsupervised anomaly detection methods to detect and segment pathology on challenging medical imaging datasets.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

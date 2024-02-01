@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Cosmin I. Bercea</title>
+    <link>https://ci-ber.github.io/project/</link>
+      <atom:link href="https://ci-ber.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 20 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ci-ber.github.io/media/icon_huf320c1c58d4cdc64cc1ce17fdbc917fb_24231_512x512_fill_lanczos_center_3.png</url>
+      <title>Projects</title>
+      <link>https://ci-ber.github.io/project/</link>
+    </image>
+    
+    <item>
+      <title>autoDDPM</title>
+      <link>https://ci-ber.github.io/project/autoddpm/</link>
+      <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/project/autoddpm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Automatic Diffusion Models for Anomaly Detection&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The introduction of diffusion models in anomaly detection has paved the way for more effective and accurate image reconstruction in pathologies. Diffusion models work by iteratively adding noise to the inputs and then de-noising them back to the original input. The intuition behind using these models for the task of unsupervised anomaly detection is that the noising process disrupts the anomalies and the reconstructions would only include healthy samples. See the de-noising process below:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/de-noise.gif&#34; alt=&#34;!Teasser&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;However, diffusion models pose a significant challenge to accurate anomaly detection. One important parameter that needs to be tuned is the amount of noise added before the de-noising process. This can be controlled by the noise level parameter $t$. The larger $t$, the more the image is disturbed and the probability of removing the anomalous tissues increases. However, the added noise disrupts the whole image, resulting in the inability to reconstruct healthy tissues accurately and introducing false positive detection. We refer to this challenge as the &lt;strong&gt;noise paradox&lt;/strong&gt; of diffusion models which can be visualised below:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/noise_paradox.gif&#34; alt=&#34;Noise_paradox&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Furthermore, different anomaly distributions reach the optimum detection using different noise levels or different noise types, e.g. Simplex noise works better for larger anomalies, but falls short in detecting subtle lesions. We refer to this challenge as the &lt;strong&gt;unknown unknownness dilemma&lt;/strong&gt;, as the true anomaly distribution at inference time should remain unknown.&lt;/p&gt;
+&lt;p&gt;In this project, we propose to mitigate these challenges using &lt;strong&gt;automatic masking&lt;/strong&gt;. We, therefore, require a single pre-trained diffusion model and considerably improve the results by doing smart sampling. See below the proposed method. We first generate initial anomaly likelihood maps from differences between inputs and pseudo-healthy reconstruction from heavily noised inputs ($t=200$). We then refine the initial estimate by systematically adding more &amp;lsquo;healthy&amp;rsquo; original context to the reconstruction, which we harmonize and in-paint, by performing re-sampling:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/method.gif&#34; alt=&#34;Noise_paradox&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Through this, we are able to preserve original healthy tissue, while replacing anomalous regions with pseudo-healthy generations. This allows us to produce accurate pseudo-healthy reconstructions and effectively localize anomalies:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_noise_paradox.png&#34; alt=&#34;Results&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Curious to know more about this project? Check our publications below.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHANES</title>
+      <link>https://ci-ber.github.io/project/phanes/</link>
+      <pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/project/phanes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Reversing the Abnormal: Pseudo-Healthy Generative Networks for Anomaly Detection&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/phanes.gif&#34; alt=&#34;Teaser&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The goal of this project is to &lt;strong&gt;reverse anomalies&lt;/strong&gt;, i.e., preserving healthy tissue and replacing anomalous regions with pseudo-healthy (PH) reconstructions.&lt;/p&gt;
+&lt;p&gt;The limitations of current &lt;strong&gt;unsupervised reconstruction-based&lt;/strong&gt; methods (including recent diffusion models) are to find the right balance between learning the healthy distribution and accurately restoring input images from latent representations. On one hand, some methods may &lt;strong&gt;lack sufficient constraints&lt;/strong&gt;, potentially missing relevant cases that require urgent care. For example, auto-encoders that are not constrained to the healthy distribution, i.e., &lt;em&gt;large bottlenecks&lt;/em&gt; or diffusion models that employ &lt;em&gt;low levels of noise&lt;/em&gt; will fail the task by also reconstructing anomalies. See the example bellow where de-noising auto-encoders wrongly reconstruct the lesion close to the right ventricle:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/prob_lc.gif&#34; alt=&#34;prob_dae&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;On the other hand, the high false positive rates observed in constrained systems can lead to the unnecessary referral of healthy patients to specialists, resulting in increased healthcare costs and potential strain on medical resources. See examples below, where variational auto-encoders (VAE), soft-introspective VAEs, and diffusion models with large levels of Simplex noise ($t$=250) produce many false positive detections due to inaccurate reconstructions:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/prob_c.gif&#34; alt=&#34;prob_c&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This work introduces a &lt;strong&gt;novel framework&lt;/strong&gt; that combines constrained and spatially preserving approaches to &lt;em&gt;maintain the identity of healthy tissues while replacing abnormal areas with pseudo-healthy generations&lt;/em&gt; based on healthy contexts. Our modular framework comprises two main components. Initially, constrained networks are employed to estimate an &lt;strong&gt;initial pseudo-healthy reconstruction&lt;/strong&gt; as well as anomaly maps. However, these initial reconstructions may not be entirely accurate, and the anomaly maps might contain false positives.&lt;/p&gt;
+&lt;p&gt;The goal of the second step is to &lt;strong&gt;refine the initial predictions and reduce false positives&lt;/strong&gt;. We focus on &lt;em&gt;preserving the healthy tissue&lt;/em&gt; that was masked out during the initial phase and utilize this information to fill in the regions identified as most likely anomalous through an &lt;em&gt;in-painting&lt;/em&gt; process:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_arch_gif.gif&#34; alt=&#34;Arch&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;See some results below:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_quali_diffusion.png&#34; alt=&#34;Arch&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Check our publications below for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MorphAEus</title>
+      <link>https://ci-ber.github.io/project/morphaeus/</link>
+      <pubDate>Fri, 07 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/project/morphaeus/</guid>
+      <description>&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/morphaeus.gif&#34; alt=&#34;MorphAEus&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;unsupervised-outlier-detection&#34;&gt;Unsupervised Outlier Detection&lt;/h1&gt;
+&lt;h2 id=&#34;common-assumption&#34;&gt;Common Assumption:&lt;/h2&gt;
+&lt;p&gt;Auto-Encoders (AEs) trained on a data distribution (e.g., healthy chest X-rays) can only reconstruct in-distribution (ID) samples well, and yield high reconstruction error for out-of-distribution (OOD) samples:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_teaser_exp-gif.gif&#34; alt=&#34;Teaser-Expectation&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;An anomaly score can thus be directly computed from the residual of the input $x$ and its reconstruction: $s(x) = |x-g(f(x))|$, with $f$ and $g$ being the encoding and decoding functions, usually implemented with neural networks.&lt;/p&gt;
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations:&lt;/h2&gt;
+&lt;p&gt;However, recent literature has shown that AEs are able to reconstruct OoD samples sometimes even better than ID samples:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_teaser_real-gif.gif&#34; alt=&#34;Teaser-Reality&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;main-findings&#34;&gt;Main findings:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OoD metrics might hide correlations such as, background intensties, or domain shifts.&lt;/li&gt;
+&lt;li&gt;We propose two metrics based on the FID and classifier confidence to investigate the distribution learning capacity of state-of-the-art (SOTA) AEs&lt;/li&gt;
+&lt;li&gt;SOTA AEs are either unable to constrain the latent manifold and allow &lt;em&gt;reconstruction of abnormal patterns&lt;/em&gt;, or they are failing to accurately restore the inputs from their latent distribution, resulting in &lt;em&gt;blurred or misaligned&lt;/em&gt; reconstructions.&lt;/li&gt;
+&lt;li&gt;We propose novel deformable auto-encoders (MorphAEus) to learn perceptually aware global image priors and locally adapt their morphometry based on estimated dense deformation fields, drastically reducing the false positives.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;morphaeus-deformable-auto-encoders&#34;&gt;MorphAEus: Deformable Auto-Encoders&lt;/h2&gt;
+&lt;p&gt;To the best of our knowledge, this is the first work that uses dense deformations fields for unsupervised anomaly detection.
+We propose to learn minimal and sufficient representations for OoD by leveraging deep AEs to predict global image priors that match the training distribution and locally adapting their morphometry with estimated deep deformation fields to better match the input:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/Fig_Arch.png&#34; alt=&#34;Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The intuition behind using deformation fields is to align healthy tissues to the input image, reducing the number of false positives, without altering the true positive pathology detection:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_morph.png&#34; alt=&#34;Intuition&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Our method reconstructs healthy synthesis of pathological inputs, enabling the localization of pathology:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_gif_cxr.gif&#34; alt=&#34;CXR&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;do-we-learn-the-manifold-on-ood-detection&#34;&gt;Do we learn the manifold? On OoD detection&lt;/h2&gt;
+&lt;p&gt;Reconstructions of ID and OoD samples by SOTA AEs:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_ood.png&#34; alt=&#34;Manifold-Qualitative&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;SOTA AEs either accurately reconstruct the input, but copy abnormalities (e.g., hand, and digits) or yield blury (Dense AE, VAE, $\beta$-VAE) or missaligned (adversarial AEs) reconstructions.
+Our proposed method learns the training distribution and produces detailed reconstructions of ID samples.&lt;/p&gt;
+&lt;h2 id=&#34;do-we-learn-the-healthy-manifold-on-pathology-detection&#34;&gt;Do we learn the healthy manifold? On pathology detection&lt;/h2&gt;
+&lt;p&gt;Healthy example:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_healthy.png&#34; alt=&#34;Healthy&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
+Some methods copy the input(Spatial AE, DAE), while the other produce blurry (Dense AE, VAE, $\beta$-VAE) or inaccurate (AAE, S-Intro VAE) reconstructions. We synthesize an accurate healthy image, removing the medical device.&lt;/p&gt;
+&lt;p&gt;Pathology examples:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_pathology_easy.png&#34; alt=&#34;Pat1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_pathology_40.png&#34; alt=&#34;Pat2&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;We synthesize detailed healthy reconstructions of pathological inputs, enabling unsupervised disease detection and localization.&lt;/p&gt;
+&lt;p&gt;Check our publication below for more information.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bias</title>
+      <link>https://ci-ber.github.io/project/bias/</link>
+      <pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/project/bias/</guid>
+      <description>&lt;p&gt;*&lt;em&gt;Bias in Unsupervised Anomaly Detection in Brain MRI&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;To be published soon&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Check our publications below for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RA</title>
+      <link>https://ci-ber.github.io/project/ra/</link>
+      <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/project/ra/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Generalizing Unsupervised Anomaly Detection: Towards Unbiased Pathology Screening&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-ra-reversed-autoencoders&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/ra_teaser.gif&#34; alt=&#34;RA_teaser&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      &lt;em&gt;&lt;strong&gt;RA&lt;/strong&gt;&lt;/em&gt;: &lt;em&gt;&lt;strong&gt;R&lt;/strong&gt;&lt;/em&gt;eversed &lt;em&gt;&lt;strong&gt;A&lt;/strong&gt;&lt;/em&gt;utoencoders
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Current Limitations:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Current unsupervised anomaly detection (UAD) methods, e.g., VAEs, exhibit biases towards detecting specific anomalies, such as hyper-intense lesions on flair images. They struggle to generalize to other anomaly types and generate many false positives:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/ra_fig_pl.gif&#34; alt=&#34;VAE&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Recent advancements in the field incorporate skip connections to preserve spatial information and denoise input using learned noise distributions [1]. During inference, no noise is added, with the expectation that the algorithm will identify and remove anomalies. This approach works well for anomalies that resemble the noise distribution, such as this edema example on the left. However, it falls short in producing pseudo-healthy reconstructions for other types of anomalies, such as colpocephaly (middle). This leads to failing in identifying structural anomalies, e.g., cases of enlarged ventricles, which may be indicative of neurodegenerative diseases like Alzheimer&amp;rsquo;s:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Edema&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Colpocephaly&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Enlarged Ventricles&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/DAE_edema.gif&#34; alt=&#34;DAE_edema&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/DAE_col.gif&#34; alt=&#34;DAE_edema&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/dae_struct.gif&#34; alt=&#34;DAE_edema&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;Proposed Method&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/fig_arch_ra.png&#34; alt=&#34;RA&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;To address these limitations, we propose a novel solution called the Reversed Autoencoders (RA). &lt;em&gt;RA&lt;/em&gt; employs an autoencoder-based framework with a regularized latent space, enforcing proximity to a prior distribution, such as a normal distribution, using the &lt;em&gt;KL divergence&lt;/em&gt;. Additionally, we introduce an &lt;em&gt;introspective adversarial loss&lt;/em&gt; to improve reconstruction quality. The reconstructions, derived from the healthy distributions, exhibit high quality but may still deviate from the inputs due to hallucinations. To enhance input-reconstruction coherence, we incorporate a &lt;em&gt;&lt;strong&gt;reversed similarity loss&lt;/strong&gt;&lt;/em&gt;, ensuring that the embeddings of the input closely align with the embeddings of the reconstruction at multiple feature levels.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Anomaly Maps&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In our method, we leverage anomaly maps that combine residual errors with perceptual errors to overcome challenges posed by underlying intensities and subtle deviations.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Results&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Synthetic Results&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;With this experiment, we test the pseudo-healthy reconstruction capability of UAD methods.
+&lt;em&gt;&lt;strong&gt;RA&lt;/strong&gt;&lt;/em&gt; provides pseudo-healthy reconstructions that are more similar to the ground truth and good anomaly localization.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/ra_fig_phr_copy.gif&#34; alt=&#34;RA_copy&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Brain Pathology Detection on FastMRI+&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Global Detection&lt;/strong&gt;: &lt;em&gt;&lt;strong&gt;RA&lt;/strong&gt;&lt;/em&gt; demonstrates a 32% improvement over SI-VAE and a 53% improvement over DAE in detecting global pathologies such as colpocephaly and chronic ischemic changes (N=27). Additionally, for global artifacts caused by motion (N=23), &lt;em&gt;&lt;strong&gt;RA&lt;/strong&gt;&lt;/em&gt; achieves a 14% improvement over SI-VAE and a remarkable 56% improvement over DAE.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Local Detection&lt;/strong&gt;: In the detection of local pathologies across 181 scans encompassing 13 different anomaly types, &lt;em&gt;&lt;strong&gt;RA&lt;/strong&gt;&lt;/em&gt; achieves an impressive 86% detection rate with an F1 score of 37.9. Comparatively, SI-VAEs and DAEs achieve lower detection rates of 48% (F1 score: 9.9) and 53% (F1 score: 26.5), respectively.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Global&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Local&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/ra_global.png&#34; alt=&#34;RA_global&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/ra_local.png&#34; alt=&#34;RA_local&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Notably, &lt;em&gt;&lt;strong&gt;RA&lt;/strong&gt;&lt;/em&gt; exhibits significant improvements in detecting structural anomalies, achieving a perfect recall and an F1 score of 79.7, demonstrating its high accuracy in also detecting enlarged ventricles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Recall/Anomaly&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Enlarged Ventricles&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/ra_fig_pl_bar.png&#34; alt=&#34;RA_revall&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/ra_enlarged.png&#34; alt=&#34;RA_enlarged&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-ra-detects-various-anomaly-types&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://ci-ber.github.io/images/ra_fig_pl.png&#34; alt=&#34;RA&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      &lt;em&gt;&lt;strong&gt;RA&lt;/strong&gt;&lt;/em&gt; detects various anomaly types.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;References&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;[1] Kascenas, Antanas, et al. “Denoising Autoencoders for Unsupervised Anomaly Detection in Brain MRI”. MIDL. 2022&lt;/p&gt;
+&lt;p&gt;Check our publications below for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>FedDis</title>
+      <link>https://ci-ber.github.io/project/feddis/</link>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://ci-ber.github.io/project/feddis/</guid>
+      <description>&lt;p&gt;We use federated learning to train collaboratively an unsupervised neural network on multiple institutes in a privacy-aware manner with the goal of segmenting brain pathology on MRI scans. We show that the federated paradigm offeres an implicit way to disentangle the shape and appearance of brain scans, learning representations that are robust to the domain shifts of the different institutes.&lt;/p&gt;
+&lt;p&gt;Check our publications below for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
